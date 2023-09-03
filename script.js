@@ -132,6 +132,8 @@ searchForm.addEventListener("submit", function(event) {
 // Function to toggle between dark and light modes
 function toggleDarkMode() {
     const body = document.body;
+    const contentContainer = document.getElementById("current-image-container");
+
     const toggleIcon = document.querySelector(".toggle-icon i");
 
     if (body.classList.contains("dark-mode")) {
@@ -139,11 +141,13 @@ function toggleDarkMode() {
         body.classList.add("light-mode");
         toggleIcon.classList.remove("fa-sun");
         toggleIcon.classList.add("fa-moon");
+        contentContainer.classList.remove("dark-background");
     } else {
         body.classList.remove("light-mode");
         body.classList.add("dark-mode");
         toggleIcon.classList.remove("fa-moon");
         toggleIcon.classList.add("fa-sun");
+        contentContainer.classList.add("dark-background");
     }
 }
 
