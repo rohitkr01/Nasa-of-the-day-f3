@@ -1,8 +1,31 @@
+
+// Function to show the loading spinner and hide the content
+function showLoadingSpinner() {
+    const loadingSpinner = document.getElementById("loading-spinner");
+    const currentImageContainer = document.getElementById("current-image-container");
+
+    loadingSpinner.style.display = "block"; // Show the loading spinner
+    currentImageContainer.style.display = "none"; // Hide the content
+}
+
+// Function to hide the loading spinner and show the content
+function hideLoadingSpinner() {
+    const loadingSpinner = document.getElementById("loading-spinner");
+    const currentImageContainer = document.getElementById("current-image-container");
+
+    loadingSpinner.style.display = "none"; // Hide the loading spinner
+    currentImageContainer.style.display = "block"; // Show the content
+}
+
 // Function to fetch and display the current image of the day
 async function getCurrentImageOfTheDay() {
     try {
+        // Show the loading spinner and hide the content
+        showLoadingSpinner();
+
         const currentDate = new Date().toISOString().split("T")[0];
-        const apiKey = "Tu2mqjRB24uSFcC6IV5DKhSz8pbe1H90CoseC8ix"; // Replace with your actual API key
+        const apiKey = "Tu2mqjRB24uSFcC6IV5DKhSz8pbe1H90CoseC8ix"; 
+
         const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${currentDate}`;
 
         const response = await fetch(apiUrl);
@@ -23,13 +46,20 @@ async function getCurrentImageOfTheDay() {
 
     } catch (error) {
         console.error(error);
+    } finally {
+        // Hide the loading spinner and show the content
+        hideLoadingSpinner();
     }
 }
 
 // Function to fetch and display the image of the day for a selected date
 async function getImageOfTheDay(date) {
     try {
-        const apiKey = "Tu2mqjRB24uSFcC6IV5DKhSz8pbe1H90CoseC8ix"; // Replace with your actual API key
+        // Show the loading spinner and hide the content
+        showLoadingSpinner();
+
+        const apiKey = "Tu2mqjRB24uSFcC6IV5DKhSz8pbe1H90CoseC8ix";  
+        
         const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`;
 
         const response = await fetch(apiUrl);
@@ -52,8 +82,13 @@ async function getImageOfTheDay(date) {
 
     } catch (error) {
         console.error(error);
+    } finally {
+        // Hide the loading spinner and show the content
+        hideLoadingSpinner();
     }
 }
+
+
 
 // Function to save a date to local storage
 function saveSearch(date) {
