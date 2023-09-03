@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>NASA Picture of the Day</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>NASA Picture of the Day</h1>
+        <h1>NASA Picture of the Day</h1> 
+        
+        <!-- Use a single toggle icon with the moon icon initially -->
+        <div id="dark-mode-toggle" class="toggle-icon">
+            <i class="fas fa-moon fa-2x"></i>
+        </div>
+
+
         <form id="search-form">
             <input type="date" id="search-input">
             <button type="submit" id="search-button">

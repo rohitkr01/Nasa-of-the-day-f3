@@ -7,13 +7,34 @@ body, h1, h2, ul, li {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #151313;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #333333;
+}
+
 
 header {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 20px;
+}
+#dark-mode-toggle{
+    position: absolute;
+    right: 50px;
+    top: 35px;
+
+    cursor: pointer;
 }
 
 header h1 {

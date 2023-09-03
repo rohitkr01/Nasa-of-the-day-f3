@@ -59,7 +59,7 @@ async function getImageOfTheDay(date) {
         showLoadingSpinner();
 
         const apiKey = "Tu2mqjRB24uSFcC6IV5DKhSz8pbe1H90CoseC8ix";  
-        
+
         const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`;
 
         const response = await fetch(apiUrl);
@@ -124,3 +124,29 @@ searchForm.addEventListener("submit", function(event) {
         searchInput.value = ""; // Clear the input field after submission
     }
 });
+
+
+
+// ******** Implementing white to dark mode and dark to white Mode  *********
+
+// Function to toggle between dark and light modes
+function toggleDarkMode() {
+    const body = document.body;
+    const toggleIcon = document.querySelector(".toggle-icon i");
+
+    if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        toggleIcon.classList.remove("fa-sun");
+        toggleIcon.classList.add("fa-moon");
+    } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        toggleIcon.classList.remove("fa-moon");
+        toggleIcon.classList.add("fa-sun");
+    }
+}
+
+// Handle dark mode toggle icon click
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+darkModeToggle.addEventListener("click", toggleDarkMode);
